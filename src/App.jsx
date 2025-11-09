@@ -11,17 +11,17 @@ import UserProfile from "./pages/UserProfile";
 function App() {
   return (
     <>
-    <Router>
-      <Routes>
-        <Route element={<DefaultLayout />}>
-          <Route index element={<HomePage/>} />
-          <Route path="search" element={<SearchPage/>} />
-          <Route path="activity" element={<ActivityPage/>} />
-          <Route path="user-profile" element={<UserProfile/>} />
-        </Route>
-      </Routes>
-    </Router>
-  </>
+      <Router >
+        <Routes>
+          <Route element={<DefaultLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="search" element={<SearchPage />} />
+            <Route path="activity" element={<ActivityPage />} />
+            <Route path="user-profile" element={<UserProfile />} />
+          </Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
