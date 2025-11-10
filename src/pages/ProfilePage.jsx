@@ -1,10 +1,10 @@
 import Heading from "@/components/Heading";
 
-function UserProfile() {
+function ProfilePage() {
     return (
         <>
             <Heading title="Trang cá nhân"></Heading>
         </>
     );;
 }
-export default UserProfile;
+export default ProfilePage;

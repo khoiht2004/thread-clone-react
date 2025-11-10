@@ -6,8 +6,9 @@ import DefaultLayout from "./layouts/DefaultLayout.";
 import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/SearchPage";
 import ActivityPage from "./pages/ActivityPage";
-import UserProfile from "./pages/UserProfile";
 import PostDetailPage from "./pages/PostDetailPage";
+import ProfilePage from "./pages/ProfilePage";
+import paths from "./paths";
 
 function App() {
   return (
@@ -16,9 +17,9 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="search" element={<SearchPage />} />
-            <Route path="activity" element={<ActivityPage />} />
-            <Route path="user-profile" element={<UserProfile />} />
+            <Route path={paths.searchPage} element={<SearchPage />} />
+            <Route path={paths.activityPage} element={<ActivityPage />} />
+            <Route path={paths.profilePage} element={<ProfilePage />} />
             <Route path="post-detail/:id" element={<PostDetailPage />} />
           </Route>
         </Routes>

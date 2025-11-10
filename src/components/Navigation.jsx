@@ -10,6 +10,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fas, far, fab)
 
 import { NavLink } from "react-router";
+import paths from '@/paths'
 
 const styles = {
     link: {
@@ -30,11 +31,11 @@ const styles = {
 }
 
 const items = [
-    { path: "/", iconSolid: ['fas', 'house'], iconRegular: ['fas', 'house'] },
-    { path: "/search", iconSolid: ['fas', 'magnifying-glass'], iconRegular: ['fas', 'magnifying-glass'] },
+    { path: paths.homePage, iconSolid: ['fas', 'house'], iconRegular: ['fas', 'house'] },
+    { path: paths.searchPage, iconSolid: ['fas', 'magnifying-glass'], iconRegular: ['fas', 'magnifying-glass'] },
     { path: null, iconSolid: ['fas', 'plus'], iconRegular: ['fas', 'plus'] },
-    { path: "/activity", iconSolid: ['fas', 'heart'], iconRegular: ['far', 'heart'] },
-    { path: "/user-profile", iconSolid: ['fas', 'user'], iconRegular: ['far', 'user'] },
+    { path: paths.activityPage, iconSolid: ['fas', 'heart'], iconRegular: ['far', 'heart'] },
+    { path: paths.profilePage, iconSolid: ['fas', 'user'], iconRegular: ['far', 'user'] },
 ]
 
 function Navigation() {
