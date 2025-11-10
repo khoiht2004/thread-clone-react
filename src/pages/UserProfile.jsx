@@ -1,4 +1,10 @@
+import Heading from "@/components/Heading";
+
 function UserProfile() {
-    return <div>UserProfile Page</div>;
+    return (
+        <>
+            <Heading title="Trang cá nhân"></Heading>
+        </>
+    );;
 }
 export default UserProfile;

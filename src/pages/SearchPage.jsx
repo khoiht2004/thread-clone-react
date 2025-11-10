@@ -1,4 +1,10 @@
+import Heading from "@/components/Heading";
+
 function SearchPage() {
-    return <div>Search Page</div>;
+    return (
+        <>
+            <Heading title="Tìm kiếm" />
+        </>
+    );
 }
 export default SearchPage;

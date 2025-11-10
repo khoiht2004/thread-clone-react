@@ -1,4 +1,10 @@
+import Heading from "@/components/Heading";
+
 function ActivityPage() {
-    return <div>Activity Page</div>;
+    return (
+        <>
+            <Heading title="Hoạt động"></Heading>
+        </>
+    );
 }
 export default ActivityPage;

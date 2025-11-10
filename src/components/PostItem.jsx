@@ -33,13 +33,17 @@ const icons = [
     { icon: ["far", "fa-paper-plane"], number: "189" }
 ]
 
+const handleClick = (e) => {
+    console.log(e.target.dataset.postId);
+}
+
 
 function PostItem() {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts?userId=1")
+        fetch("https://jsonplaceholder.typicode.com/posts")
             .then(res => res.json())
             .then(response => {
                 setPosts(response)
@@ -63,28 +67,29 @@ function PostItem() {
 
                 {posts.map((post) => (
                     <>
-                        <Separator className="bg-[rgba(255,255,255,0.1)]" />
-
-                        <CardHeader className="flex gap-5">
-                            <Avatar className="size-9">
-                                <AvatarImage src="https://github.com/shadcn.png" />
-                            </Avatar>
-                            <div className="text-white">
-                                <CardTitle>User {post.userId}</CardTitle>
-                                <CardDescription className="text-indigo-100 text-[15px] text-ellipsis" >
-                                    {post.body}
-                                </CardDescription>
-                            </div>
-                        </CardHeader>
-                        <CardAction className="px-6">
-                            {icons.map((item, index) => (
-                                <>
-                                    <Button key={index} variant="ghost" className="text-[#777] hover:bg-[rgba(255,255,255,0.1)] hover:text-[#777]">
-                                        <FontAwesomeIcon size="lg " icon={item.icon} />{item.number}
-                                    </Button>
-                                </>
-                            ))}
-                        </CardAction>
+                        <Card className="bg-transparent p-0 border-none cursor-pointer" data-post-id={post.id} onClick={handleClick}>
+                            <Separator className="bg-[rgba(255,255,255,0.1)]" />
+                            <CardHeader className="flex gap-5">
+                                <Avatar className="size-9">
+                                    <AvatarImage src="https://github.com/shadcn.png" />
+                                </Avatar>
+                                <div className="text-white">
+                                    <CardTitle>User {post.userId}</CardTitle>
+                                    <CardDescription className="text-indigo-100 text-[15px] text-ellipsis" >
+                                        {post.body}
+                                    </CardDescription>
+                                </div>
+                            </CardHeader>
+                            <CardAction className="px-6 ">
+                                {icons.map((item, index) => (
+                                    <>
+                                        <Button key={index} variant="ghost" className="text-[#777] hover:bg-[rgba(255,255,255,0.1)] hover:text-[#777] cursor-pointer rounded-3xl">
+                                            <FontAwesomeIcon size="lg" icon={item.icon} />{item.number}
+                                        </Button>
+                                    </>
+                                ))}
+                            </CardAction>
+                        </Card>
                     </>
                 ))}
             </Card>
