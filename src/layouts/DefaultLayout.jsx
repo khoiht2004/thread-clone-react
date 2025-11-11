@@ -17,7 +17,7 @@ function DefaultLayout() {
     return (
         <div className="px-5">
             <Navigation />
-            <main className="mx-auto max-w-[638px] text-white">
+            <main className="mx-auto w-[638px] text-white">
                 <div className="flex flex-col items-center ">
                     <Outlet />
                 </div>

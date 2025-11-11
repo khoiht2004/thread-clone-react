@@ -32,8 +32,8 @@ function PostItem() {
             })
     }, [])
 
-    const handlePostClick = (postId) => {
-        navigate(`/post-detail/${postId}`)
+    const handlePostClick = (userId, postId) => {
+        navigate(`/@${userId}/post-detail/${postId}`)
     }
 
     if (loading) {

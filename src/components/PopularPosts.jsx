@@ -21,7 +21,7 @@ function PopularPost({ post, onClick }) {
     const handlePostClick = (e) => {
         // Chỉ trigger onClick khi không click vào button action
         if (!e.target.closest('.action-buttons')) {
-            onClick(post.id)
+            onClick(post.userId, post.id)
         }
     }
 
