@@ -44,7 +44,6 @@ function PopularPost({ post, onClick, currentUser }) {
         // Gửi comment lên server
         console.log("Submitting comment:", commentText, "for post:", post.id)
 
-        // Simulate API call
         return new Promise((resolve) => {
             setTimeout(() => {
                 console.log("Comment posted successfully")

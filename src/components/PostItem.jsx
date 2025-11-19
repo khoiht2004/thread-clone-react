@@ -35,6 +35,7 @@ function PostItem() {
         return () => {
             document.removeEventListener("click", handlePostClick);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handlePostClick = (userId, postId) => {
