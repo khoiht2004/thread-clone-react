@@ -8,10 +8,9 @@ import SearchPage from "./pages/SearchPage";
 import ActivityPage from "./pages/ActivityPage";
 import PostDetailPage from "./pages/PostDetailPage";
 import ProfilePage from "./pages/ProfilePage";
-import paths from "./paths";
 import FollowingPage from "./pages/FollowingPage";
 import GhostPost from "./pages/GhostPost";
-import CommentModal from "./components/CommentModal";
+import paths from "./paths";
 
 function App() {
   return (
@@ -22,12 +21,17 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path={paths.searchPage} element={<SearchPage />} />
             <Route path={paths.activityPage} element={<ActivityPage />} />
-            <Route path={paths.profilePage} element={<ProfilePage />} />
             <Route path={paths.followingPage} element={<FollowingPage />} />
             <Route path={paths.ghostPost} element={<GhostPost />} />
 
-            {/* <Route path="/comment" element={<CommentModal />} /> */}
-            <Route path="/:username/post-detail/:id" element={<PostDetailPage />} />
+            {/* Profile tab paths */}
+            <Route path=":username" element={<ProfilePage />} />
+            <Route path=":username/replies" element={<ProfilePage />} />
+            <Route path=":username/media" element={<ProfilePage />} />
+            <Route path=":username/reposts" element={<ProfilePage />} />
+
+            {/* Post detail */}
+            <Route path=":username/post-detail/:postId" element={<PostDetailPage />} />
           </Route>
         </Routes>
       </Router>

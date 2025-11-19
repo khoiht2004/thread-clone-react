@@ -11,6 +11,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
 import { Button } from "./ui/button"
 import PopularPost from "./PopularPosts"
+import { Separator } from "./ui/separator"
 
 library.add(fas, far, fab)
 
@@ -30,6 +31,10 @@ function PostItem() {
                 console.error("Error fetching posts:", error)
                 setLoading(false)
             })
+
+        return () => {
+            document.removeEventListener("click", handlePostClick);
+        }
     }, [])
 
     const handlePostClick = (userId, postId) => {
@@ -54,6 +59,8 @@ function PostItem() {
                 <p className="flex-1 px-3 text-md text-[#777]">Có gì mới?</p>
                 <Button className="outline-solid outline outline-[#77777790]">Đăng</Button>
             </div>
+
+            <Separator className="bg-[rgba(255,255,255,0.1)]" />
 
             {/* Danh sách bài post */}
             {posts.map((post) => (

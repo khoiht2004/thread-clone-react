@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router"
+import { useParams, useNavigate, Link } from "react-router"
 import Heading from "@/components/Heading"
 import {
     Card,
@@ -22,7 +22,7 @@ const icons = [
 ]
 
 function PostDetailPage() {
-    const { id } = useParams()
+    const { postId } = useParams()
     const navigate = useNavigate()
     const [post, setPost] = useState(null)
     const [comments, setComments] = useState([])
@@ -36,12 +36,12 @@ function PostDetailPage() {
                 setError(null)
 
                 // Fetch post details
-                const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+                const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
                 if (!postResponse.ok) throw new Error("Không tìm thấy bài post")
                 const postData = await postResponse.json()
 
                 // Fetch comments
-                const commentsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+                const commentsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
                 if (!commentsResponse.ok) throw new Error("Không tải được bình luận")
                 const commentsData = await commentsResponse.json()
 
@@ -55,7 +55,7 @@ function PostDetailPage() {
         }
 
         fetchPostAndComments()
-    }, [id])
+    }, [postId])
 
     if (loading) {
         return (
@@ -141,7 +141,12 @@ function PostDetailPage() {
                             </Avatar>
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                    <span className="text-white font-medium text-sm">{comment.name}</span>
+                                    <Link
+                                        to={`/@${comment.id}`}
+                                        className="text-white font-medium text-sm hover:underline"
+                                    >
+                                        {comment.name}
+                                    </Link>
                                     <span className="text-[#777] text-xs">{comment.email}</span>
                                 </div>
                                 <p className="text-indigo-100 text-sm">{comment.body}</p>
