@@ -56,7 +56,7 @@ function CommentModal({ open, onOpenChange, post, currentUser, onSubmit }) {
                                 <Avatar className="size-9">
                                     <AvatarImage src={post?.userAvatar || "https://github.com/shadcn.png"} />
                                 </Avatar>
-                                <div className="w-[2px] flex-1 bg-[rgba(255,255,255,0.1)] my-2"></div>
+                                <div className="w-0.5 flex-1 bg-[rgba(255,255,255,0.1)] my-2"></div>
                             </div>
 
                             <div className="flex-1 pb-4">
@@ -106,11 +106,11 @@ function CommentModal({ open, onOpenChange, post, currentUser, onSubmit }) {
                                 </div>
 
                                 <Textarea
-                                    placeholder={`Trả lời ${post?.userName || "radionhacbuon"}...`}
+                                    placeholder={`Trả lời ${post?.userName}...`}
                                     value={comment}
                                     onChange={(e) => setComment(e.target.value)}
                                     onKeyDown={handleKeyDown}
-                                    className="min-h-[80px] bg-transparent border-none text-indigo-100 placeholder:text-[#777] resize-none focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
+                                    className="min-h-20 bg-transparent border-none text-indigo-100 placeholder:text-[#777] resize-none focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
                                 />
                             </div>
                         </div>
